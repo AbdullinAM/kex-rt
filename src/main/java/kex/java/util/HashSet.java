@@ -92,14 +92,14 @@ import java.util.*;
 public class HashSet<E>
         extends AbstractSet<E>
         implements Set<E>, Cloneable, java.io.Serializable {
-    LinkedHashMap<E, Object> inner;
+    HashMap<E, Object> inner;
 
     public HashSet() {
-        inner = new LinkedHashMap<>();
+        inner = new HashMap<>();
     }
 
     public HashSet(Collection<? extends E> c) {
-        inner = new LinkedHashMap<>();
+        inner = new HashMap<>();
         addAll(c);
     }
 

@@ -145,6 +145,7 @@ public class LinkedHashSet<E>
     @Override
     protected void contracts() {
         AssertIntrinsics.kexNotNull(inner);
+        AssertIntrinsics.kexAssume(inner instanceof LinkedHashMap);
     }
 
     @Override
