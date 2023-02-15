@@ -154,7 +154,7 @@ public final class StringBuffer
 
     @Override
     public synchronized int length() {
-        return count;
+        return value.length;
     }
 
     @Override
@@ -165,9 +165,7 @@ public final class StringBuffer
 
     @Override
     public synchronized void ensureCapacity(int minimumCapacity) {
-        if (minimumCapacity > value.length) {
-            expandCapacity(minimumCapacity);
-        }
+        super.ensureCapacity(minimumCapacity);
     }
 
     /**
@@ -193,7 +191,7 @@ public final class StringBuffer
      */
     @Override
     public synchronized char charAt(int index) {
-        if ((index < 0) || (index >= count))
+        if ((index < 0) || (index >= value.length))
             throw new StringIndexOutOfBoundsException(index);
         return value[index];
     }
@@ -246,7 +244,7 @@ public final class StringBuffer
      */
     @Override
     public synchronized void setCharAt(int index, char ch) {
-        if ((index < 0) || (index >= count))
+        if ((index < 0) || (index >= value.length))
             throw new StringIndexOutOfBoundsException(index);
         value[index] = ch;
     }
@@ -435,7 +433,7 @@ public final class StringBuffer
      */
     @Override
     public synchronized String substring(int start) {
-        return substring(start, count);
+        return substring(start, value.length);
     }
 
     /**
@@ -612,7 +610,7 @@ public final class StringBuffer
     @Override
     public int lastIndexOf(String str) {
         // Note, synchronization achieved via invocations of other StringBuffer methods
-        return lastIndexOf(str, count);
+        return lastIndexOf(str, value.length);
     }
 
     /**

@@ -406,6 +406,6 @@ public final class StringBuilder
     @Override
     public String toString() {
         // Create a copy, don't share the array
-        return new String(value, 0, count);
+        return new String(value, 0, value.length);
     }
 }
