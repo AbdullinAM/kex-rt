@@ -67,7 +67,7 @@ import java.util.function.Consumer;
  * resizes the backing array; merely setting the value of an element is not
  * a structural modification.)  This is typically accomplished by
  * synchronizing on some object that naturally encapsulates the list.
- *
+ * <p>
  * If no such object exists, the list should be "wrapped" using the
  * {@link Collections#synchronizedList Collections.synchronizedList}
  * method.  This is best done at creation time, to prevent accidental
@@ -98,13 +98,13 @@ import java.util.function.Consumer;
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  *
- * @author  Josh Bloch
- * @author  Neal Gafter
- * @see     Collection
- * @see     List
- * @see     LinkedList
- * @see     Vector
- * @since   1.2
+ * @author Josh Bloch
+ * @author Neal Gafter
+ * @see Collection
+ * @see List
+ * @see LinkedList
+ * @see Vector
+ * @since 1.2
  */
 public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, java.io.Serializable {
     private static final int DEFAULT_CAPACITY = 10;
@@ -177,8 +177,8 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
                 AssertIntrinsics.kexAssume(CollectionIntrinsics.forAll(0, result, index -> elementData[index] != null));
                 AssertIntrinsics.kexAssert(elementData[result] == null);
             } else {
-                AssertIntrinsics.kexAssume(CollectionIntrinsics.forAll(0, result, index -> !tempObject.equals(elementData[index])));
-                AssertIntrinsics.kexAssert(o.equals(elementData[result]));
+                AssertIntrinsics.kexAssume(CollectionIntrinsics.forAll(0, result, index -> !ObjectIntrinsics.equals(o, elementData[result])));
+                AssertIntrinsics.kexAssert(ObjectIntrinsics.equals(o, elementData[result]));
             }
             return result;
         }
