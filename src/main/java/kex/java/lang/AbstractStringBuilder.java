@@ -67,6 +67,7 @@ public abstract class AbstractStringBuilder implements Appendable, CharSequence 
      */
     AbstractStringBuilder(int capacity) {
         int actualCapacity = UnknownIntrinsics.kexUnknownInt();
+        AssertIntrinsics.kexAssume(actualCapacity > capacity);
         value = new char[actualCapacity];
 
     }
