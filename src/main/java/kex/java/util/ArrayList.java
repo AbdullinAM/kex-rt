@@ -175,7 +175,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
             AssertIntrinsics.kexAssumeNegative(result - elementData.length);
             if (o == null) {
                 AssertIntrinsics.kexAssume(CollectionIntrinsics.forAll(0, result, index -> elementData[index] != null));
-                AssertIntrinsics.kexAssert(elementData[result] == null);
+                AssertIntrinsics.kexAssertNull(elementData[result]);
             } else {
                 AssertIntrinsics.kexAssume(CollectionIntrinsics.forAll(0, result, index -> !ObjectIntrinsics.equals(o, elementData[result])));
                 AssertIntrinsics.kexAssert(ObjectIntrinsics.equals(o, elementData[result]));
@@ -195,7 +195,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
             AssertIntrinsics.kexAssumeNegative(result - elementData.length);
             if (o == null) {
                 AssertIntrinsics.kexAssume(CollectionIntrinsics.forAll(result + 1, elementData.length, index -> elementData[index] != null));
-                AssertIntrinsics.kexAssert(elementData[result] == null);
+                AssertIntrinsics.kexAssertNull(elementData[result]);
             } else {
                 AssertIntrinsics.kexAssume(CollectionIntrinsics.forAll(result + 1, elementData.length, index -> !tempObject.equals(elementData[index])));
                 AssertIntrinsics.kexAssert(o.equals(elementData[result]));
