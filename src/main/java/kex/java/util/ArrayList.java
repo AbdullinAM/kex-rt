@@ -119,7 +119,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
         if (initialCapacity < 0)
             throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
         int actualCapacity = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(actualCapacity > initialCapacity);
+        AssertIntrinsics.kexAssumePositive(actualCapacity - initialCapacity);
         this.elementData = new Object[actualCapacity];
     }
 
@@ -138,11 +138,11 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     }
 
     public void ensureCapacity(int minCapacity) {
-        AssertIntrinsics.kexAssume(elementData.length > minCapacity);
+        AssertIntrinsics.kexAssumePositive(elementData.length - minCapacity);
     }
 
     private void ensureCapacityInternal(int minCapacity) {
-        AssertIntrinsics.kexAssume(elementData.length > minCapacity);
+        AssertIntrinsics.kexAssumePositive(elementData.length - minCapacity);
     }
 
     @Override
@@ -171,8 +171,8 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
         tempObject = o;
         if (CollectionIntrinsics.contains(elementData, tempObject)) {
             int result = UnknownIntrinsics.kexUnknownInt();
-            AssertIntrinsics.kexAssume(result >= 0);
-            AssertIntrinsics.kexAssume(result < elementData.length);
+            AssertIntrinsics.kexAssumePositiveOrZero(result);
+            AssertIntrinsics.kexAssumeNegative(result - elementData.length);
             if (o == null) {
                 AssertIntrinsics.kexAssume(CollectionIntrinsics.forAll(0, result, index -> elementData[index] != null));
                 AssertIntrinsics.kexAssert(elementData[result] == null);
@@ -191,8 +191,8 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
         tempObject = o;
         if (CollectionIntrinsics.contains(elementData, tempObject)) {
             int result = UnknownIntrinsics.kexUnknownInt();
-            AssertIntrinsics.kexAssume(result >= 0);
-            AssertIntrinsics.kexAssume(result < elementData.length);
+            AssertIntrinsics.kexAssumePositiveOrZero(result);
+            AssertIntrinsics.kexAssumeNegative(result - elementData.length);
             if (o == null) {
                 AssertIntrinsics.kexAssume(CollectionIntrinsics.forAll(result + 1, elementData.length, index -> elementData[index] != null));
                 AssertIntrinsics.kexAssert(elementData[result] == null);
@@ -228,12 +228,12 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     }
 
     private void rangeCheck(int index) {
-        AssertIntrinsics.kexAssume(index < elementData.length);
+        AssertIntrinsics.kexAssumeNegative(index - elementData.length);
     }
 
     private void rangeCheckForAdd(int index) {
-        AssertIntrinsics.kexAssume(index >= 0);
-        AssertIntrinsics.kexAssume(index < elementData.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(index);
+        AssertIntrinsics.kexAssumeNegative(index - elementData.length);
     }
 
     @SuppressWarnings("unchecked")

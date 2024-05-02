@@ -213,7 +213,7 @@ public class HashMap<K, V> extends AbstractMap<K, V>
     protected void contracts() {
         AssertIntrinsics.kexNotNull(keys);
         AssertIntrinsics.kexNotNull(values);
-        AssertIntrinsics.kexAssume(keys.size() == values.size());
+        AssertIntrinsics.kexAssumeEqual(keys.size(), values.size());
     }
 
     public int size() {

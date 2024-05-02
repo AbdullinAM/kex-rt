@@ -4584,10 +4584,10 @@ class Character implements java.io.Serializable, Comparable<Character> {
      * @return  a string representation of this object.
      */
     public String toString() {
-        char buf[] = {value};
+        char[] buf = {value};
         String res = String.valueOf(buf);
-        AssertIntrinsics.kexAssume(res.length() == 1);
-        AssertIntrinsics.kexAssume(res.charAt(0) == value);
+        AssertIntrinsics.kexAssumeEqual(res.length(), 1);
+        AssertIntrinsics.kexAssumeEqual(res.charAt(0), value);
         return res;
     }
 
@@ -4601,10 +4601,10 @@ class Character implements java.io.Serializable, Comparable<Character> {
      * @since 1.4
      */
     public static String toString(char c) {
-        char buf[] = {c};
+        char[] buf = {c};
         String res = String.valueOf(buf);
-        AssertIntrinsics.kexAssume(res.length() == 1);
-        AssertIntrinsics.kexAssume(res.charAt(0) == c);
+        AssertIntrinsics.kexAssumeEqual(res.length(), 1);
+        AssertIntrinsics.kexAssumeEqual(res.charAt(0), c);
         return res;
     }
 

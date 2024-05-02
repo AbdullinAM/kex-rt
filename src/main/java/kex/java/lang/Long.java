@@ -355,7 +355,7 @@ public final class Long extends Number implements Comparable<Long> {
             else if (l < index + chars.length) return chars[l - index];
             else return buf[l];
         });
-        AssertIntrinsics.kexAssume(buf == res);
+        AssertIntrinsics.kexAssumeEqual(buf, res);
     }
 
     // Requires positive x

@@ -408,109 +408,127 @@ public class Arrays {
 
     public static int binarySearch(long[] a, long key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static int binarySearch(long[] a, int fromIndex, int toIndex, long key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static int binarySearch(int[] a, int key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static int binarySearch(int[] a, int fromIndex, int toIndex, int key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static int binarySearch(short[] a, short key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static int binarySearch(short[] a, int fromIndex, int toIndex, short key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static int binarySearch(byte[] a, byte key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static int binarySearch(byte[] a, int fromIndex, int toIndex, byte key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static int binarySearch(char[] a, char key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static int binarySearch(char[] a, int fromIndex, int toIndex, char key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static int binarySearch(float[] a, float key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static int binarySearch(float[] a, int fromIndex, int toIndex, float key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static int binarySearch(double[] a, double key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static int binarySearch(double[] a, int fromIndex, int toIndex, double key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static int binarySearch(Object[] a, Object key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static int binarySearch(Object[] a, int fromIndex, int toIndex, Object key) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static <T> int binarySearch(T[] a, T key, Comparator<? super T> c) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 
     public static <T> int binarySearch(T[] a, int fromIndex, int toIndex, T key, Comparator<? super T> c) {
         int res = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(res >= -1 && res < a.length);
+        AssertIntrinsics.kexAssumePositiveOrZero(res + 1);
+        AssertIntrinsics.kexAssumeNegative(res - a.length);
         return res;
     }
 

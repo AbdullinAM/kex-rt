@@ -67,7 +67,7 @@ public abstract class AbstractStringBuilder implements Appendable, CharSequence 
      */
     AbstractStringBuilder(int capacity) {
         int actualCapacity = UnknownIntrinsics.kexUnknownInt();
-        AssertIntrinsics.kexAssume(actualCapacity > capacity);
+        AssertIntrinsics.kexAssumePositive(actualCapacity - capacity);
         value = new char[actualCapacity];
 
     }
@@ -102,7 +102,7 @@ public abstract class AbstractStringBuilder implements Appendable, CharSequence 
      * @param minimumCapacity the minimum desired capacity.
      */
     public void ensureCapacity(int minimumCapacity) {
-        AssertIntrinsics.kexAssume(value.length > minimumCapacity);
+        AssertIntrinsics.kexAssumePositive(value.length - minimumCapacity);
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class AbstractStringBuilder implements Appendable, CharSequence 
      * never synchronized.
      */
     private void ensureCapacityInternal(int minimumCapacity) {
-        AssertIntrinsics.kexAssume(value.length > minimumCapacity);
+        AssertIntrinsics.kexAssumePositive(value.length - minimumCapacity);
     }
 
     /**
@@ -123,7 +123,7 @@ public abstract class AbstractStringBuilder implements Appendable, CharSequence 
         int newCapacity = value.length * 2 + 2;
         if (newCapacity - minimumCapacity < 0)
             newCapacity = minimumCapacity;
-        AssertIntrinsics.kexAssume(newCapacity > 0);
+        AssertIntrinsics.kexAssumePositive(newCapacity);
         value = Arrays.copyOf(value, newCapacity);
     }
 
@@ -166,7 +166,7 @@ public abstract class AbstractStringBuilder implements Appendable, CharSequence 
         if (newLength < 0) {
             throw new StringIndexOutOfBoundsException(newLength);
         }
-        AssertIntrinsics.kexAssume(value.length >= newLength);
+        AssertIntrinsics.kexAssumePositiveOrZero(value.length - newLength);
 
         value = CollectionIntrinsics.generateCharArray(value.length, i -> {
             if (i < newLength) return value[i];
@@ -269,7 +269,7 @@ public abstract class AbstractStringBuilder implements Appendable, CharSequence 
             if (index < dstBegin) return dst[index];
             else return value[index + srcBegin];
         });
-        AssertIntrinsics.kexAssume(dst == result);
+        AssertIntrinsics.kexAssumeEqual(dst, result);
     }
 
     /**

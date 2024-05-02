@@ -326,7 +326,7 @@ public final class Integer extends Number implements Comparable<Integer> {
             else if (l < index + chars.length) return chars[l - index];
             else return buf[l];
         });
-        AssertIntrinsics.kexAssume(buf == res);
+        AssertIntrinsics.kexAssumeEqual(buf, res);
     }
 
     final static int[] sizeTable = {9, 99, 999, 9999, 99999, 999999, 9999999,
